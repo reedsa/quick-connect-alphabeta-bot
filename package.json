@@ -1,0 +1,37 @@
+{
+  "name": "quick-connect-bot-alphabeta-js",
+  "version": "0.1.0",
+  "description":
+    "quick-connect bot running the minimax algorithm using alpha beta pruning",
+  "main": "index.js",
+  "author": "Stuart Reed <stuart.reed@colorado.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "jayson": "^2.0.4",
+    "quick-connect-js-bot": "^1.0.9"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "scripts": {
+    "build": "babel --presets es2015 src --out-dir lib",
+    "watch": "yarn build -- --watch",
+    "start":
+      "quick-connect alphabeta password -r http://localhost:3002/rpc -b lib/alphabetaBot.js",
+    "test": "ava src/**/*.test.js"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "babel": {
+    "presets": [
+      "@ava/stage-4"
+    ]
+  }
+}
